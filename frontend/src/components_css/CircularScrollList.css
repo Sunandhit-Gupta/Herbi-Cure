@@ -1,0 +1,26 @@
+.circle-scroll-container {
+    display: flex;
+    overflow-x: scroll;
+    padding: 20px;
+    scrollbar-width: none; /* For Firefox */
+  }
+
+  .circle-scroll-container::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+
+  .circle-scroll-list {
+    display: flex;
+    gap: 20px;
+  }
+
+  .circle-scroll-item {
+    flex: 0 0 auto;
+    background-color: #975314;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    min-width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }

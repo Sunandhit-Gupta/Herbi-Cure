@@ -1,0 +1,86 @@
+
+
+.body_container {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    padding-top: 10px;
+}
+
+.lama_img_body img {
+    width: 4rem;
+}
+
+.output {
+    overflow-y: auto;
+    overflow: auto;
+    scroll-behavior: smooth;
+    height: 400px;
+    width: 80vw;
+    background: transparent;
+    padding: 20px 20px;
+    border-radius: 10px;
+   
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+}
+
+#heading {
+  font-family: "Mukta", sans-serif;
+}
+
+#heading span {
+    font-size: 12px;
+    font-style: italic;
+    color: orange;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    height: 35px;
+
+}
+
+.formInputDiv {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.formInputDiv button {
+    height: 30px;
+    margin: 0;
+    width: 40px;
+    background: white;
+}
+
+#inputTextField {
+    width: 90%;
+    height: 30px;
+}
+
+#connect_search {
+    display: flex;
+    flex-direction: column;
+    background-color: #8AA282;
+    z-index: 2;
+    padding: 20px;
+
+}
