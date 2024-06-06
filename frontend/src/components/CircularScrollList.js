@@ -31,10 +31,6 @@ const CircleScrollList = ({ onTextClick , disable}) => {
     // "What are the Ayurvedic approaches to enhancing mental clarity and focus?"
 ];
 
-  const handleClick = (event)=>{
-
-  }
-
   return (
     <div className="circle-scroll-container">
       <div className="circle-scroll-list">

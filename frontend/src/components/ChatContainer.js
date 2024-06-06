@@ -16,7 +16,7 @@ export class ChatContainer extends Component {
     return (
       <div className={classID}>
         <div id='outer_div_content'>
-        <span id='title'>{this.props.classID == "botChats"? <img src={Mascot}/>: '🧔You:'}</span>
+        <span id='title'>{this.props.classID === "botChats"? <img src={Mascot} alt='Mascot'/>: '🧔You:'}</span>
         <div id='content'>
         < MyComponent text = {text}/>
         {image && <img src={image} alt="Uploaded" style={{ display:'block', maxWidth: '100px', maxHeight: '100px', marginTop: '30px', marginLeft:'auto', marginRight:'auto'}} />} {/* Conditionally render the image */}

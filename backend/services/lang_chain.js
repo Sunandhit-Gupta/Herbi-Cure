@@ -2,24 +2,6 @@ import { Ollama } from "@langchain/community/llms/ollama";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { LLMChain } from "langchain/chains";
 
-const ollama = new Ollama({
-    model: "llama3",
-});
-
-
-const template = " {restaurant_type} . The returned answer should be within 100 words ans it should be written in mardown language";
-
-
-const promptTemp = new PromptTemplate({
-    template: template,
-    inputVariables: ["restaurant_type"],
-});
-
-const chain = new LLMChain({
-    llm: ollama,
-    prompt: promptTemp
-});
-
 
 async function   getAiResponse (country) {
 
@@ -55,10 +37,10 @@ async function   getAiResponse (country) {
             }),
         });
 
-        
+
         const queryData = await queryResponse.json();
         const answer = queryData.chatMessage.answer;
-        console.log(answer);
+
         return answer;
     } catch (error) {
         console.error('Error:', error);

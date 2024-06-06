@@ -26,9 +26,9 @@ export const NavBar = () => {
             </div>
 
             <div>
-            <a href='#'>Models</a>
-            <a href='#'> Sign in</a>
-            <a href='#'><button>Downloads</button></a>
+            <a href='https://github.com/Sunandhit-Gupta'>Models</a>
+            <a href='https://github.com/Sunandhit-Gupta'> Sign in</a>
+            <a href='https://github.com/Sunandhit-Gupta'><button>Downloads</button></a>
             </div>
         </div>
     </div>
