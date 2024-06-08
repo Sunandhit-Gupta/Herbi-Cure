@@ -46,7 +46,7 @@ export const Body = () => {
 
   const fetchImageFromServer = useCallback(async (searchQuery, response_ai) => {
     try {
-      const response = await fetch(`${endpoint}/fetch-image?query=${encodeURIComponent(searchQuery)}`);
+      const response = await fetch(`${endpoint}fetch-image?query=${encodeURIComponent(searchQuery)}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
