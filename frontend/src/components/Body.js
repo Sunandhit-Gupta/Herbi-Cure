@@ -8,6 +8,8 @@ import ChatContainer from './ChatContainer';
 import CircleScrollList from './CircularScrollList';
 import FallingLeaves from './FallingLeaves';
 
+import endpoint from '../services/endpoints';
+
 export const Body = () => {
 
   async function fetchData(input_to_ai, inputFileValue, ocrResult) {
@@ -15,7 +17,7 @@ export const Body = () => {
       var postData = new FormData();
       postData.append('country', `${input_to_ai + " " + ocrResult}`);
       postData.append('file', inputFileValue);
-      const response = await fetch('http://localhost:5000/', {
+      const response = await fetch(endpoint, {
         method: "POST",
         body: postData
       });
@@ -44,7 +46,7 @@ export const Body = () => {
 
   const fetchImageFromServer = useCallback(async (searchQuery, response_ai) => {
     try {
-      const response = await fetch(`http://localhost:5000/fetch-image?query=${encodeURIComponent(searchQuery)}`);
+      const response = await fetch(`${endpoint}/fetch-image?query=${encodeURIComponent(searchQuery)}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
