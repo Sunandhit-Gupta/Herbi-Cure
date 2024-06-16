@@ -1,4 +1,4 @@
-# Deployed Link: https://herbi-cure.netlify.app/
+Deployed Link: https://herbi-cure.netlify.app/
 
 # Herbi Cure
 
