@@ -4,6 +4,12 @@
     width: 100%;
     text-align: right;
 
+    ::-webkit-scrollbar {
+      display: none;
+  }
+
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
   }
 
   #leaves i {
@@ -17,6 +23,8 @@
     border: 1px solid #333;
     z-index: -1;
     animation: falling 5s 0s infinite;
+
+
   }
 
   #leaves i:nth-of-type(2n) {
@@ -40,6 +48,8 @@
     border-right: 1px solid #222;
     background: linear-gradient(to right, rgba(0, 100, 0, 1), #005600);
     z-index: -1;
+
+
   }
 
   #leaves i:after {
@@ -52,6 +62,8 @@
     position: absolute;
     left: 85px;
     border-radius: 50%;
+
+   
   }
 
   #leaves i:nth-of-type(n) {

@@ -1,5 +1,4 @@
 
-
 .body_container {
     overflow-x: hidden;
     display: flex;
@@ -7,6 +6,7 @@
     align-items: center;
     padding: 40px;
     padding-top: 10px;
+
 }
 
 .lama_img_body img {
@@ -22,7 +22,7 @@
     background: transparent;
     padding: 20px 20px;
     border-radius: 10px;
-   
+
     ::-webkit-scrollbar {
         display: none;
     }
