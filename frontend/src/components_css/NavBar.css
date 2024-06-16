@@ -6,7 +6,16 @@
     background: white;
     position: relative;
     z-index: 1000;
-    
+    overflow-x: scroll;
+    overflow-wrap: none;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+
 }
 
 .left_nav_content img{
@@ -32,9 +41,11 @@
     display: flex;
     font-weight: 400;
     font-size: 18px;
+    flex-wrap: nowrap;
 }
 
 .right_nav_content a{
+    text-wrap: nowrap;
     margin-left: 32px;
     text-decoration: none;
     color: black;
@@ -49,9 +60,12 @@
 }
 
 .search_bar{
+    position: relative;
     display: flex;
     align-items: center;
     position: relative;
+    flex-wrap: nowrap;
+    justify-content: center;
 }
 
 .search_bar .search_icon{
@@ -67,4 +81,10 @@
     border: 1px solid grey;
     outline-color: #6B9ACA;
     outline-width: 10px;
+    display: block;
+}
+
+.right_nav_links{
+    display: flex;
+    flex-wrap: nowrap;
 }

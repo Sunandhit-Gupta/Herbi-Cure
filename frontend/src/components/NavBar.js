@@ -15,8 +15,8 @@ export const NavBar = () => {
            </Link>
 
             <Link to= "/About">Blog</Link>
-           <Link to= "/Readme">Readme</Link>
-            <a href='https://github.com/Sunandhit-Gupta'>Github</a>
+           <a href='https://github.com/Sunandhit-Gupta/Herbi-Cure/tree/main#readme'> Readme</a>
+            <a href='https://github.com/Sunandhit-Gupta/Herbi-Cure'>Github</a>
         </div>
         <div className='right_nav_content'>
 
@@ -25,7 +25,7 @@ export const NavBar = () => {
             <input placeholder= ' Search Models '/>
             </div>
 
-            <div>
+            <div className='right_nav_links'>
             <a href='https://github.com/Sunandhit-Gupta'>Models</a>
             <a href='https://github.com/Sunandhit-Gupta'> Sign in</a>
             <a href='https://github.com/Sunandhit-Gupta'><button>Downloads</button></a>

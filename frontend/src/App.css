@@ -1,6 +1,6 @@
 
 .App{
     background-image: url(./assets/texturebg.jpeg);
-    
+    overflow-x: hidden;
 }
 
