@@ -4,14 +4,15 @@ import { MdOutlineAttachFile } from "react-icons/md";
 import Tesseract from 'tesseract.js';
 import Mascot from "../assets/mascot_herbi_cure.png";
 import "../components_css/Body.css";
+import endpoint from '../services/endpoints';
 import ChatContainer from './ChatContainer';
 import CircleScrollList from './CircularScrollList';
 import FallingLeaves from './FallingLeaves';
-
-import endpoint from '../services/endpoints';
+import Cloud from "../assets/Cloud.png";
+import Moon from "../assets/Moon.png"
+import Rainbow from "../assets/Rainbow.png"
 
 export const Body = () => {
-
   async function fetchData(input_to_ai, inputFileValue, ocrResult) {
     try {
       var postData = new FormData();
@@ -156,11 +157,53 @@ export const Body = () => {
     }
   }, [chatList, isLoading]);
 
+  // Prevent page from scrolling when input is focused
+  useEffect(() => {
+    const handleFocus = () => {
+      // Save current scroll position
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      document.body.style.position = 'fixed';
+      document.body.style.top = -scrollPosition + 'px';
+      document.body.style.width = '100%';
+    };
+
+    const handleBlur = () => {
+      // Restore scroll position
+      const scrollPosition = Math.abs(parseInt(document.body.style.top, 10));
+      document.body.style.position = '';
+      document.body.style.top = '';
+      window.scrollTo(0, scrollPosition);
+    };
+
+    const inputElement = document.getElementById('inputTextField');
+    inputElement.addEventListener('focus', handleFocus);
+    inputElement.addEventListener('blur', handleBlur);
+
+    return () => {
+      inputElement.removeEventListener('focus', handleFocus);
+      inputElement.removeEventListener('blur', handleBlur);
+    };
+  }, []);
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent form submission
+      handleSubmit();
+    }
+  };
+
+
   return (
     <div className='body_container'>
+      <div className='decoration'>
+        <img className='cloud_1' src={Cloud} alt='cloud'/>
+        <img className='rainbow' src={Rainbow} alt='Rainbow'/>
+        <img className='moon' src={Moon} alt='Moon'/>
+      </div>
       <FallingLeaves />
       <div className='lama_img_body'><img src={Mascot} alt='Mascot' /></div>
-      <div id='heading'><h3>Herbi Cure <span>- Ayurvedic Answers Anytime</span> </h3></div>
+      {/* <div id='heading'><h3 className='glow'>Herbi Cure <span>- Ayurvedic Answers Anytime</span> </h3></div> */}
+      <h1 className='glow'>Herbi-Cure <span>An Ayurveda Companion</span></h1>
       <div id='connect_search'>
         <div className='output' ref={outputRef}>
           <CircleScrollList onTextClick={handleTextClick} disable={isLoading || isProcessing} />
@@ -169,13 +212,14 @@ export const Body = () => {
           }
           {isLoading ? <ChatContainer key={-1} text={"Loading..."} classID={"botChats"} /> : null}
         </div>
+
         <div className='formInputDiv'>
           <label htmlFor="inputFileBtn" className="custom-file-upload">
             {fileSelected ? <CiSaveDown2 /> : <MdOutlineAttachFile />}
           </label>
           <input onChange={handleFileInput} type='file' accept='.jpeg, .png, .jpg' id='inputFileBtn' name='file' />
-          <input onChange={handleInputChange} value={inputValue} id='inputTextField' />
-          <button onClick={handleSubmit} disabled={isProcessing || isLoading}>Ask</button>
+          <input onChange={handleInputChange} onKeyPress={handleKeyPress} value={inputValue} id='inputTextField' autoComplete='off' placeholder='Message Leefy'/>
+          <button onClick={handleSubmit} disabled={isProcessing || isLoading || !inputValue}>Ask</button>
         </div>
       </div>
     </div>

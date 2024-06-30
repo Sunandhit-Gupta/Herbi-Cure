@@ -1,7 +1,8 @@
-
-.App{
-    background-image: url(./assets/texturebg.jpeg);
-    overflow-x: hidden;
-
+body{
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #706e6e;
 }
 

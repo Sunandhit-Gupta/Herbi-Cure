@@ -1,12 +1,62 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: fixed;
+}
 
 .body_container {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px;
-    padding-top: 10px;
+    justify-content: center;
+}
 
+.decoration {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.cloud_1 {
+    z-index: 2;
+    position: absolute;
+    width: 15rem;
+    left: 0;
+    top: 60px;
+    animation: moveCloud 5s linear infinite;
+}
+
+.rainbow {
+    z-index: 3;
+    position: absolute;
+    width: 15rem;
+    left: 0;
+    top: 30px;
+    display: none;
+}
+
+.moon {
+    z-index: 3;
+    position: absolute;
+    width: 15rem;
+    right: 0;
+    top: 30px;
+    animation: rotateMoon 28s linear infinite;
+}
+
+@keyframes rotateMoon {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+  }
+
+@keyframes moveCloud{
+    0% {transform: translateX(12px) translateY(12px);}
+    50%{ transform: translateX(0px) translateY(0px);}
+    100% { transform: translateX(12px)  translateY(12px); }
 }
 
 .lama_img_body img {
@@ -17,63 +67,79 @@
     overflow-y: auto;
     overflow: auto;
     scroll-behavior: smooth;
-    height: 400px;
+    height: calc(100vh - 260px);
     width: 80vw;
     background: transparent;
     padding: 20px 20px;
     border-radius: 10px;
-
-    ::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-#heading {
-  font-family: "Mukta", sans-serif;
-}
-
-#heading span {
-    font-size: 12px;
-    font-style: italic;
-    color: orange;
+.output::-webkit-scrollbar {
+    display: none;
 }
 
 input[type="file"] {
     display: none;
+    height: 0;
+    width: 0;
 }
 
 .custom-file-upload {
-    width: 40px;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: white;
-    height: 35px;
-
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #2F2F2F;
+    border: 0;
+    color: white;
 }
 
 .formInputDiv {
+    position: fixed;
     display: flex;
-    width: 100%;
+    width: 100vw;
     align-items: center;
     justify-content: center;
+    bottom: 10px;
+    height: 50px;
+    left: 0;
 }
 
 .formInputDiv button {
-    height: 30px;
-    margin: 0;
-    width: 40px;
+    height: 100%;
+    width: 50px;
     background: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+    background-color: #2F2F2F;
+    font-family: sans-serif;
+    color: white;
+}
+
+.formInputDiv button:disabled {
+    color: rgb(93, 92, 92);
 }
 
 #inputTextField {
-    width: 90%;
-    height: 30px;
+    width: 60%;
+    height: 100%;
+    border: 0;
+    outline: none;
+    background-color: #2F2F2F;
+    color: white;
+    padding: 0;
+    position: relative;
+}
+
+#inputTextField:focus {
+    position: relative;
 }
 
 #connect_search {
@@ -81,6 +147,59 @@ input[type="file"] {
     flex-direction: column;
     background-color: #8AA282;
     z-index: 2;
-    padding: 20px;
+    align-items: center;
+    position: relative;
+    margin: 0;
+    padding: 10px;
+}
 
+.glow {
+    font-size: 25px;
+    z-index: 2;
+    color: #eed382;
+    text-align: center;
+    animation: glow 2s ease-in-out infinite alternate;
+    will-change: text-shadow;
+}
+
+.glow span {
+    font-size: small;
+    color: orange;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #e60073;
+    }
+    to {
+        text-shadow: 0 0 10px #ff4da6, 0 0 20px #ff4da6;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .cloud_1 {
+        z-index: 2;
+        position: absolute;
+        width: 15rem;
+        left: 0;
+        top: 60px;
+        display: none;
+    }
+
+    .rainbow {
+        z-index: 3;
+        position: absolute;
+        width: 15rem;
+        left: 0;
+        top: 30px;
+        display: none;
+    }
+
+    .moon {
+        z-index: 3;
+        position: absolute;
+        width: 15rem;
+        right: 0;
+        top: 30px;
+    }
 }

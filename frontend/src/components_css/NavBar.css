@@ -1,13 +1,19 @@
+
+
 .NavBar_Container{
+    position: fixed;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+    justify-content: space-around;
     background: white;
-    position: relative;
     z-index: 1000;
     overflow-x: scroll;
     overflow-wrap: none;
+    background-color: #2F2F2F;
+    width: 100%;
+    margin: 0;
+    border: 0;
+    padding: 10px;
 
     ::-webkit-scrollbar {
         display: none;
@@ -28,12 +34,13 @@
     justify-content: space-between;
     font-size: 18px;
     font-weight: 400;
+
 }
 
 .left_nav_content a{
     margin-left: 32px;
     text-decoration: none;
-    color: black;
+    color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -42,13 +49,16 @@
     font-weight: 400;
     font-size: 18px;
     flex-wrap: nowrap;
+    margin: 0;
+
 }
 
 .right_nav_content a{
     text-wrap: nowrap;
     margin-left: 32px;
+
     text-decoration: none;
-    color: black;
+    color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -88,3 +98,57 @@
     display: flex;
     flex-wrap: nowrap;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .search_bar{
+        display: none;
+    }
+
+    .right_nav_links{
+        display: none;
+    }
+
+    .NavBar_Container{
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background: white;
+        z-index: 1000;
+        overflow-x: scroll;
+        overflow-wrap: none;
+        background-color: #2F2F2F;
+        width: 100%;
+        margin: 0;
+        border: 0;
+        padding: 10px;
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;
+
+    }
+
+    .left_nav_content{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 18px;
+        font-weight: 400;
+        width: 100%;
+    }
+
+    .left_nav_content a{
+        margin: 0;
+        text-decoration: none;
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+  }
