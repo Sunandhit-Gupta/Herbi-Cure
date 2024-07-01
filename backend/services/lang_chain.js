@@ -1,9 +1,5 @@
-import { Ollama } from "@langchain/community/llms/ollama";
-import { PromptTemplate } from "@langchain/core/prompts";
-import { LLMChain } from "langchain/chains";
 
-
-async function   getAiResponse (country) {
+async function   getAiResponse (prompt) {
 
     try {
         // Step 1: Create Chat Session
@@ -31,12 +27,11 @@ async function   getAiResponse (country) {
             },
             body: JSON.stringify({
                 "endpointId": "predefined-openai-gpt4o",
-                "query": country,
+                "query": prompt,
                 "pluginIds": ["plugin-1717418141"],
                 "responseMode": "sync",
             }),
         });
-
 
         const queryData = await queryResponse.json();
         const answer = queryData.chatMessage.answer;

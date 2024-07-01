@@ -39,7 +39,10 @@ app.listen(5000);
 
 async function getFirstImageURL(query) {
   const searchURL = `https://www.bing.com/images/search?q=${encodeURIComponent(query)}`;
+
+
   const { data } = await axios.get(searchURL);
+
   const $ = cheerio.load(data);
   const firstImageElement = $('.mimg').first();
   const firstImageURL = firstImageElement.attr('src');
@@ -66,17 +69,14 @@ app.get('/fetch-image', async (req, res) => {
   }
 });
 
-
 app.get('/', (req,res)=>{
 res.send("working");
 })
 
+
 app.post('/', upload.single('file'), async (req,res)=>{
-
     const {country} = req.body;
-
     try{
-      
         var response =  await getAiResponse(country);
         res.status(201).json(response);
     }
