@@ -16,7 +16,7 @@ async function   getAiResponse (prompt) {
         });
 
         const sessionData = await sessionResponse.json();
-        const sessionId = sessionData.chatSession.id;
+        const sessionId = sessionData.data.id;
 
         // Step 2: Answer Query using session ID from Step 1
         const queryResponse = await fetch(`https://gateway-dev.on-demand.io/chat/v1/sessions/${sessionId}/query`, {
@@ -34,8 +34,8 @@ async function   getAiResponse (prompt) {
         });
 
         const queryData = await queryResponse.json();
-        const answer = queryData.chatMessage.answer;
 
+        const answer = queryData.data.answer;
         return answer;
     } catch (error) {
         console.error('Error:', error);

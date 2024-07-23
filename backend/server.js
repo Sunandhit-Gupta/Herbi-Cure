@@ -78,6 +78,7 @@ app.post('/', upload.single('file'), async (req,res)=>{
     const {country} = req.body;
     try{
         var response =  await getAiResponse(country);
+        console.log("server_res" , response);
         res.status(201).json(response);
     }
     catch(err){
