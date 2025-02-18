@@ -73,8 +73,9 @@ res.send("working");
 })
 
 app.post('/', upload.single('file'), async (req,res)=>{
-    const {country} = req.body;
+    let {country} = req.body;
 
+    //optimising
     if(country.length > 0){
       country= "Give Ayurvedic Suggestions for " + country;
     }
