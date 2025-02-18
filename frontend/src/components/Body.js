@@ -23,11 +23,14 @@ export const Body = () => {
         body: postData
       });
 
+      console.log("inner_res", response);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
 
       const result = await response.json();
+
+      console.log("result", result);
       return result;
     } catch (error) {
       console.log(error);
@@ -124,6 +127,8 @@ export const Body = () => {
 
     var response_ai = await fetchData(inputValue, inputFileValue, ocrResult);
     var input_to_fetch_image = response_ai;
+
+    console.log("response_ai", response_ai);
     if (response_ai.length > 100) {
       input_to_fetch_image = response_ai.substring(0, 100);
     }

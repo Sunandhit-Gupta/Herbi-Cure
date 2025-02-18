@@ -12,9 +12,8 @@ import axios from 'axios'; // Import axios for making HTTP requests
 import cheerio from 'cheerio'; // Import cheerio for web scraping
 
 
-
-
 app.use(cors());
+
 
 app.use(express.urlencoded({extended: false}));
 
@@ -73,9 +72,13 @@ app.get('/', (req,res)=>{
 res.send("working");
 })
 
-
 app.post('/', upload.single('file'), async (req,res)=>{
     const {country} = req.body;
+
+    if(country.length > 0){
+      country= "Give Ayurvedic Suggestions for " + country;
+    }
+
     try{
         var response =  await getAiResponse(country);
         console.log("server_res" , response);
